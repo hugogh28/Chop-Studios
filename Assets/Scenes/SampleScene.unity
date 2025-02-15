@@ -404,8 +404,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.046447076, y: -0.9073755, z: 0.104175724, w: -0.40454903}
-  m_LocalPosition: {x: -6.601302, y: 2.2756996, z: 5.656981}
+  m_LocalRotation: {x: 0.00494558, y: -0.9931784, z: -0.045908213, w: -0.10707292}
+  m_LocalPosition: {x: -3.451778, y: -2.5968835, z: 14.519867}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -521,7 +521,7 @@ Transform:
   m_GameObject: {fileID: 1136497659}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0521756, y: 1.8346305, z: -4.4843044}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -581,7 +581,7 @@ Transform:
   m_GameObject: {fileID: 1168070867}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -605,8 +605,10 @@ MonoBehaviour:
   verticalMove: 0
   player: {fileID: 1168070868}
   playerSpeed: 5
+  gravity: 9.8
+  fallingVelocity: 0
+  jumpForce: 5
   mainCamera: {fileID: 963194227}
-  keyCode: 0
 --- !u!1 &1864428047
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +660,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
