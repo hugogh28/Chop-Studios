@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Movement")]
     //Creación de variables para el movimiento del jugador
-    public float horizontalMove; 
+    public float horizontalMove;
     public float verticalMove;
     private Vector3 playerInput;
 
@@ -14,13 +15,21 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed;
     private float baseSpeed;
     private Vector3 movePlayer;
+
+    [Header("Jump")]
     public float gravity = 9.8f;
     public float fallingVelocity; // Se crea una velocidad de caída aislada para permitir una aceleración
     public float jumpForce;
 
+    [Header("Rotation")]
+    public float rotationSensibility = 10f;
+
+    [Header("Camera")]
     public Camera mainCamera;
-    private Vector3 camForward;
-    private Vector3 camRight;
+
+    private float cameraVerticalAngle;
+
+    Vector3 rotationInput = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -32,28 +41,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalMove = Input.GetAxis("Horizontal");
-        verticalMove = Input.GetAxis("Vertical");
+        Look();
 
-        playerInput = new Vector3(horizontalMove, 0, verticalMove); //Inicializa a 0 la velocidad en el eje vertical y, así como los inputs en los ejes del suelo
-        playerInput = Vector3.ClampMagnitude(playerInput, 1); //Evita que se sumen las velocidades al ir en dirección diagonal
+        Movement();
 
-        camDirection();
-
-        movePlayer = playerInput.x * camRight + playerInput.z * camForward; //Movimiento del jugador relativo a la cámara
-
-        float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? baseSpeed * 1.65f : baseSpeed; //Se actualiza la velocidad máxima del jugador en función de si se presiona la tecla shift o no
-
-        movePlayer = movePlayer * currentSpeed;//Se actualiza el movimiento del jugador por medio de su velocidad actual
-
-        if (movePlayer != Vector3.zero) 
-        {
-            //Con esto logramos un movimiento más natural del jugador y que no simplemente parezca rotarse instantáneamente
-            Quaternion targetRotation = Quaternion.LookRotation(movePlayer);
-            player.transform.rotation = Quaternion.Slerp(player.transform.rotation, targetRotation, Time.deltaTime * 10f);
-        }
-
-        setGravity();//Aplicación de la gravedad
+        setGravity();
 
         playerSkill();
 
@@ -62,16 +54,31 @@ public class PlayerController : MonoBehaviour
         Debug.Log(player.velocity.magnitude); //Debugging para comprobar en tiempo de ejecución la velocidad del player
     }
 
-    void camDirection() //Función destinada a determinar la dirección a la que mira nuestra cámara
+    void Look()//Función destinada a la rotación de la cámara
     {
-        camForward = mainCamera.transform.forward;
-        camRight = mainCamera.transform.right;
+        rotationInput.x = Input.GetAxis("Mouse X") * rotationSensibility * Time.deltaTime;
+        rotationInput.y = Input.GetAxis("Mouse Y") * rotationSensibility * Time.deltaTime;
 
-        camForward.y = 0;
-        camRight.y = 0;
+        cameraVerticalAngle += rotationInput.y;
+        cameraVerticalAngle = Mathf.Clamp(cameraVerticalAngle, -70, 70);//Limitación al ángulo vertical de la cámara para evitar que esta pueda dar un 360
 
-        camForward = camForward.normalized;
-        camRight = camRight.normalized;
+        transform.Rotate(Vector3.up * rotationInput.x); //Rota al jugador alrededor del eje Y para poder girar a izquierda o derecha
+        mainCamera.transform.localRotation = Quaternion.Euler(-cameraVerticalAngle, 0f, 0f); //Rotación de la cámara en el eje X y con un mayor realismo de la misma
+    }
+
+    void Movement()//Función destinada al movimiento del jugador
+    {
+        horizontalMove = Input.GetAxis("Horizontal");
+        verticalMove = Input.GetAxis("Vertical");
+
+        playerInput = new Vector3(horizontalMove, 0, verticalMove); //Inicializa a 0 la velocidad en el eje vertical y, así como los inputs en los ejes del suelo
+        playerInput = Vector3.ClampMagnitude(playerInput, 1); //Evita que se sumen las velocidades al ir en dirección diagonal
+
+        movePlayer = transform.TransformDirection(playerInput); //Transforma la posición del jugador en función del input
+
+        float currentSpeed = (Input.GetKey(KeyCode.LeftShift) && player.isGrounded) ? baseSpeed * 1.65f : baseSpeed; //Se actualiza la velocidad máxima del jugador en función de si se presiona la tecla shift o no
+
+        movePlayer = movePlayer * currentSpeed;//Se actualiza el movimiento del jugador por medio de su velocidad actual
     }
 
     void setGravity()//Función destinada a aplicar una velocidad de caída al player, es decir, la existencia de gravedad
@@ -90,11 +97,11 @@ public class PlayerController : MonoBehaviour
 
     void playerSkill()//Función destinada a las habilidades del player
     {
-        if(player.isGrounded && Input.GetButtonDown("Jump"))
+        if (player.isGrounded && Input.GetButtonDown("Jump"))
         {
             fallingVelocity = jumpForce;
             movePlayer.y = fallingVelocity;//No se usa Time.deltaTime porque se busca un pulso no una aceleración
         }
     }
-
+ 
 }

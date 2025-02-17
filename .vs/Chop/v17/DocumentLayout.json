@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|c:\\users\\hugo\\desktop\\chop\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|c:\\users\\hugo\\desktop\\chop\\assets\\scripts\\player\\outsidecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\outsidecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OutsideController.cs",
+              "DocumentMoniker": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Player\\OutsideController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\OutsideController.cs",
+              "ToolTip": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Player\\OutsideController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\OutsideController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T19:30:06.288Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,9 +41,9 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerController.cs",
               "ToolTip": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Player\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerController.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAYwEMAAAAnAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBcAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T03:49:25.843Z",
+              "WhenOpened": "2025-02-17T19:28:59.207Z",
               "EditorCaption": ""
             }
           ]
