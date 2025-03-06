@@ -6,119 +6,53 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
 
-    public NavMeshAgent agent;
-
     public Transform player;
+    public float detectionRange = 15f;
+    public float shootingRange = 7f;
+    public float fireRate = 1.5f;
+    public float bulletSpeed = 10;
+    public GameObject bulletPrefab;
+    public Transform bulletSpawnPoint;
 
-    public LayerMask whatIsGround, whatIsPlayer;
+    private NavMeshAgent agent;
+    private float nextFireTime;
 
-    public float health;
-
-    //Patroling
-    public Vector3 walkPoint;
-    bool walkPointSet;
-    public float walkPointRange;
-
-    //Attacking
-    public float timeBetweenAttacks;
-    bool alreadyAttacked;
-    public GameObject projectile;
-
-    //States
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
-
-    private void Awake()
+    private void Start()
     {
-        player = GameObject.Find("PlayerObj").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
-        //Chequea rango de vista y ataque
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange) AttackPlayer();
-    }
-
-    private void Patroling()
-    {
-        if (!walkPointSet) SearchWalkPoint();
-
-        if (walkPointSet) agent.SetDestination(walkPoint);
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        //WalkPoint alcanzado
-        if(distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = false;
-    }
-
-    private void SearchWalkPoint()
-    {
-        //Calcular un punto random dentro del rango
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        if(Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-            walkPointSet = true;
-    }
-
-    private void ChasePlayer()
-    {
-        agent.SetDestination(player.position);
-    }
-    
-    private void AttackPlayer()
-    {
-        //Asegurar que el enemigo no se mueve
-        agent.SetDestination(transform.position);
-
-        transform.LookAt(player);
-
-        if(!alreadyAttacked)
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if(distanceToPlayer <= detectionRange)
         {
-            //Código destinado al ataque aquí
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            agent.SetDestination(player.position);
+        }
 
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+        if(distanceToPlayer <= shootingRange)
+        {
+            agent.isStopped = true;
+            transform.LookAt(player);
 
-            //
-
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            if(Time.time >= nextFireTime)
+            {
+                Shoot();
+                nextFireTime = Time.time + fireRate;
+            }
+        }
+        else
+        {
+            agent.isStopped = false;
         }
     }
 
-    private void ResetAttack()
+    private void Shoot()
     {
-        alreadyAttacked = false;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-
-        if (health <= 0) Invoke(nameof(DestroyEnemy), .5f);
-    }
-
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
+        if(bulletPrefab != null && bulletSpawnPoint != null)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+        }
     }
 }
