@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Destroyable
   - Bullet
+  - Void
   layers:
   - Default
   - TransparentFX

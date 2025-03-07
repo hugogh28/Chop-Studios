@@ -48,9 +48,6 @@ public class PlayerStats : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.K)) {
-            TakeDamage(20);
-        }
         if(Time.time - lastDamageTime >= regenerationDelay && regenerationCoroutine == null)
         {
             regenerationCap = Mathf.Min(currentHealth + regenerationAmount, maxHealth);
@@ -79,6 +76,14 @@ public class PlayerStats : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             TakeDamage(20);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Void"))
+        {
+            TakeDamage(100);
         }
     }
 

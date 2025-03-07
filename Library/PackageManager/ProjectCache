@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638768266721884413
+      ticks: 638768266740000000
     m_Hash: 347211050
   m_LockFileStatus:
     m_FilePath: C:/Users/Hugo/Desktop/Chop/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638768266721925225
+      ticks: 638768266740000000
     m_Hash: 1812832670
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
