@@ -38,8 +38,17 @@ public class AllyAI : MonoBehaviour
     private NavMeshAgent agent;
     private float nextFireTime;
 
+    [Header("Audio")]
+    public AudioSource bulletSound;
+    public AudioClip shootSound;
+
     private void Start()
     {
+        if (bulletSound == null)
+        {
+            bulletSound = GetComponent<AudioSource>();
+        }
+
         currentHealth = maxHealth;
 
         agent = GetComponent<NavMeshAgent>();
@@ -82,6 +91,11 @@ public class AllyAI : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+
+            if (bulletSound != null && shootSound != null)
+            {
+                bulletSound.PlayOneShot(shootSound);
+            }
         }
     }
 

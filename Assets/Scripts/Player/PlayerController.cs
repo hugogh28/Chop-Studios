@@ -36,11 +36,25 @@ public class PlayerController : MonoBehaviour
     {
         player = GetComponent<CharacterController>();
         baseSpeed = playerSpeed;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!Application.isFocused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        
         Look();
 
         Movement();
