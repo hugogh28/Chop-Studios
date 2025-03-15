@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DamStats : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class DamStats : MonoBehaviour
 
     void Start()
     {
-        dam.SetActive(true);
         currentHealth = maxHealth;
     }
 
@@ -25,7 +25,8 @@ public class DamStats : MonoBehaviour
     {
         if(currentHealth <= 0)
         {
-            dam.SetActive(false);
+            UnlockCursor();
+            SceneManager.LoadScene(1);
         }
     }
 
@@ -39,5 +40,11 @@ public class DamStats : MonoBehaviour
     {
         currentHealth -= amount;
         currentHealth = Mathf.Max(currentHealth, 0);
+    }
+
+    private void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

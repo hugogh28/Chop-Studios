@@ -11,6 +11,8 @@ public class Gun : MonoBehaviour
 
     private float nextFireTime = 0f;
 
+    private bool canShoot = false;
+
     [Header("Audio")]
     public AudioSource bulletSound;
     public AudioClip shootSound;
@@ -21,11 +23,13 @@ public class Gun : MonoBehaviour
         {
             bulletSound = GetComponent<AudioSource>();
         }
+
+        Invoke(nameof(EnableShooting), 0.2f);
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Time.time >= nextFireTime)
+        if (canShoot && Input.GetMouseButtonDown(0) && Time.time >= nextFireTime)
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
@@ -44,5 +48,10 @@ public class Gun : MonoBehaviour
                 bulletSound.PlayOneShot(shootSound);
             }
         }
+    }
+
+    private void EnableShooting()
+    {
+        canShoot = true;
     }
 }

@@ -5,9 +5,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMeshComponentsTestsEditm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMeshComponentsExamples", "NavMeshComponentsExamples.csproj", "{163FDDA7-AB5F-8157-8D1B-0A6E0FBBC938}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMeshComponentsTestsPlaymode", "NavMeshComponentsTestsPlaymode.csproj", "{92A02916-B868-3794-6D8B-0BC754C58129}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{7AF43A2B-4B1D-AC89-26FF-83706A533234}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMeshComponentsTestsPlaymode", "NavMeshComponentsTestsPlaymode.csproj", "{92A02916-B868-3794-6D8B-0BC754C58129}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMeshComponents", "NavMeshComponents.csproj", "{43750867-CEDF-A867-091F-729CD220A1CC}"
 EndProject
@@ -29,14 +29,14 @@ Global
 		{163FDDA7-AB5F-8157-8D1B-0A6E0FBBC938}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{163FDDA7-AB5F-8157-8D1B-0A6E0FBBC938}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{163FDDA7-AB5F-8157-8D1B-0A6E0FBBC938}.Release|Any CPU.Build.0 = Release|Any CPU
-		{92A02916-B868-3794-6D8B-0BC754C58129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{92A02916-B868-3794-6D8B-0BC754C58129}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{92A02916-B868-3794-6D8B-0BC754C58129}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{92A02916-B868-3794-6D8B-0BC754C58129}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7AF43A2B-4B1D-AC89-26FF-83706A533234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7AF43A2B-4B1D-AC89-26FF-83706A533234}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AF43A2B-4B1D-AC89-26FF-83706A533234}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AF43A2B-4B1D-AC89-26FF-83706A533234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92A02916-B868-3794-6D8B-0BC754C58129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92A02916-B868-3794-6D8B-0BC754C58129}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92A02916-B868-3794-6D8B-0BC754C58129}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92A02916-B868-3794-6D8B-0BC754C58129}.Release|Any CPU.Build.0 = Release|Any CPU
 		{43750867-CEDF-A867-091F-729CD220A1CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{43750867-CEDF-A867-091F-729CD220A1CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43750867-CEDF-A867-091F-729CD220A1CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
