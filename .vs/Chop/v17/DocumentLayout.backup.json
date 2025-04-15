@@ -1,0 +1,117 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Hugo\\Desktop\\Chop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|c:\\users\\hugo\\desktop\\chop\\assets\\scripts\\enemy\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|C:\\Users\\Hugo\\Desktop\\Chop\\assets\\scripts\\gun\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gun\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|C:\\Users\\Hugo\\Desktop\\Chop\\assets\\scripts\\player\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|C:\\Users\\Hugo\\Desktop\\Chop\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|C:\\Users\\Hugo\\Desktop\\Chop\\assets\\scripts\\canvas\\healthbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\canvas\\healthbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|C:\\Users\\Hugo\\Desktop\\Chop\\assets\\scripts\\player\\outsidecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AF43A2B-4B1D-AC89-26FF-83706A533234}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\outsidecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Gun\\Bullet.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Gun\\Bullet.cs",
+              "ToolTip": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Gun\\Bullet.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Gun\\Bullet.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T21:29:57.703Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlayerStats.cs",
+              "DocumentMoniker": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Player\\PlayerStats.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerStats.cs",
+              "ToolTip": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Player\\PlayerStats.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerStats.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T21:38:42.494Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HealthBar.cs",
+              "DocumentMoniker": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Canvas\\HealthBar.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Canvas\\HealthBar.cs",
+              "ToolTip": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Canvas\\HealthBar.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Canvas\\HealthBar.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T22:07:56.374Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EnemyAI.cs",
+              "DocumentMoniker": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Enemy\\EnemyAI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyAI.cs",
+              "ToolTip": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Enemy\\EnemyAI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemyAI.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAAQwDoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T23:24:50.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OutsideController.cs",
+              "DocumentMoniker": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Player\\OutsideController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\OutsideController.cs",
+              "ToolTip": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Player\\OutsideController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\OutsideController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T19:30:06.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Player\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\Hugo\\Desktop\\Chop\\Assets\\Scripts\\Player\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerController.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAAwC4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T19:28:59.207Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
