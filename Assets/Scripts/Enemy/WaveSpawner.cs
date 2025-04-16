@@ -83,6 +83,16 @@ public class WaveSpawner : MonoBehaviour
                 if (playerObj != null)
                 {
                     enemy.player = playerObj.transform;
+
+                    PlayerStats playerStats = playerObj.GetComponent<PlayerStats>();
+                    if(playerStats != null)
+                    {
+                        enemy.playerStats = playerStats;
+                    }
+                    else
+                    {
+                        Debug.LogWarning("No se ha encontrado el componente PlayerStats en el jugador");
+                    }
                 }
                 else
                 {

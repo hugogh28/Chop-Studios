@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -39,6 +40,10 @@ public class EnemyAIWave : MonoBehaviour
     public AudioClip shootSound;
 
     private WaveSpawner waveSpawner;
+
+    public int coinPerEnemy;
+    public int scorePerEnemy;
+    public PlayerStats playerStats;
 
     private void Start()
     {
@@ -80,7 +85,10 @@ public class EnemyAIWave : MonoBehaviour
         {
             regenerationCap = Mathf.Min(currentHealth + regenerationAmount, maxHealth);
             regenerationCoroutine = StartCoroutine(RegenerateHealth());
-        }if (currentHealth <= 0)
+        }if(Input.GetKeyDown(KeyCode.L)) {
+            TakeDamage(50);
+        }
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -130,6 +138,9 @@ public class EnemyAIWave : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        
+        playerStats.coins += coinPerEnemy;
+        playerStats.score += scorePerEnemy;
 
         waveSpawner.waves[waveSpawner.currentWaveIndex].enemiesLeft--;
     }

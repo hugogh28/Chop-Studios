@@ -14,15 +14,17 @@ public class PlayerStats : MonoBehaviour
 
     public int armor = 0;
 
-    public int coins = 100;
+    public int coins = 0;
 
-    public int currentHealth;
+    public int score = 0;
 
-    public int currentArmor;
+    [HideInInspector] public int currentHealth;
+
+    [HideInInspector] public int currentArmor;
 
     public HealthBar healthBar;
 
-   public HealthBar armorBar;
+    public HealthBar armorBar;
 
     private int regenerationAmount = 20;
 
@@ -178,7 +180,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Void"))
         {
-            TakeDamage(200);//Comprobar si da errores este valor al haber añadido un escudo
+            TakeDamage(200); //Comprobar si da errores este valor al haber añadido un escudo
         }
     }
 
@@ -195,7 +197,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Die()
     {
-        if(currentHealth <= 0)//Código por modificar, el personaje debe morir y no respawnear si lo matan los enemigos
+        if(currentHealth <= 0) //Código por modificar, el personaje debe morir y no respawnear si lo matan los enemigos
         {
             StartCoroutine(Respawn());
         }

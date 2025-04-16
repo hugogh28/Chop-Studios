@@ -438,6 +438,7 @@
 "Assets/Scripts/Player/OutsideController.cs"
 "Assets/Scripts/Player/PlayerController.cs"
 "Assets/Scripts/Player/PlayerStats.cs"
+"Assets/Scripts/Player/PlayerUI.cs"
 "Assets/Scripts/Shop/ShopUI.cs"
 "Assets/Scripts/Shop/ShopZone.cs"
 "Assets/Scripts/Sound/ApplyAudioSettings.cs"

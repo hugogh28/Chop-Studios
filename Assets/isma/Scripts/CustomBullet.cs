@@ -40,7 +40,11 @@ public class CustomBullet : MonoBehaviour
 
     private void Explode()
     {
-        if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
+        if (explosion != null) 
+        { 
+            exp = Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(exp, 2);
+        }
 
         Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, whatIsEnemies);
         for (int i = 0 ; i < enemies.Length ; i++)
@@ -52,7 +56,7 @@ public class CustomBullet : MonoBehaviour
                 enemies[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRange);
         }
         Destroy(gameObject);
-        Invoke("Delay", 2.0f);
+        //Invoke("Delay", 2.0f);
     }
 
     private void Delay()
