@@ -1478,8 +1478,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: da4c79606a46ce144946424c748d2dc9, type: 3}
-<<<<<<< HEAD
-=======
 --- !u!1001 &958969533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1537,7 +1535,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3aa17c03d47df848b64b4097585319b, type: 3}
->>>>>>> 1c7dd9fcc60fe1ffd94d73a3cf7bca53c4bfe956
 --- !u!1001 &1022197076
 PrefabInstance:
   m_ObjectHideFlags: 0
