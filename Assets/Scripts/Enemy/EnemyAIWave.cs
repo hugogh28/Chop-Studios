@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -32,7 +33,7 @@ public class EnemyAIWave : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
 
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     private float nextFireTime;
 
     [Header("Audio")]
@@ -44,6 +45,11 @@ public class EnemyAIWave : MonoBehaviour
     public int coinPerEnemy;
     public int scorePerEnemy;
     public PlayerStats playerStats;
+
+    [HideInInspector] public float distanceToPlayer;
+
+    public bool canShoot = true;
+    public bool isStealing = false;
 
     private void Start()
     {
@@ -60,8 +66,8 @@ public class EnemyAIWave : MonoBehaviour
 
     private void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        if(distanceToPlayer <= detectionRange)
+        distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if(!isStealing && distanceToPlayer <= detectionRange)
         {
             agent.SetDestination(player.position);
         }
@@ -94,8 +100,12 @@ public class EnemyAIWave : MonoBehaviour
         }
     }
 
-    private void Shoot()
+    public void Shoot()
     {
+        if (!canShoot)
+        {
+            return;
+        }
         if(bulletPrefab != null && bulletSpawnPoint != null)
         {
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
@@ -161,7 +171,7 @@ public class EnemyAIWave : MonoBehaviour
         }
     }
 
-    private void SmoothLookAt(Transform target)
+    public void SmoothLookAt(Transform target)
     {
         Vector3 direction = target.position - transform.position;
         direction.y = 0;

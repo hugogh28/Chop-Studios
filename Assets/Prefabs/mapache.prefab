@@ -121,6 +121,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de5bb7dc180aa6a459e5c0855fa09d52, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4223324840194794747}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de5bb7dc180aa6a459e5c0855fa09d52, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4064474592062711040}
   m_SourcePrefab: {fileID: 100100000, guid: de5bb7dc180aa6a459e5c0855fa09d52, type: 3}
 --- !u!1 &5885191093503403313 stripped
 GameObject:
@@ -147,11 +150,14 @@ MonoBehaviour:
   bulletSpeed: 10
   bulletPrefab: {fileID: 8699642268081757900, guid: de41998a19a706f449c15aa8c70a6700, type: 3}
   bulletSpawnPoint: {fileID: 4897232085165834523}
+  agent: {fileID: 0}
   bulletSound: {fileID: 4223324840194794747}
   shootSound: {fileID: 8300000, guid: 426f49c94a519d64280bcf3090b08238, type: 3}
   coinPerEnemy: 5
   scorePerEnemy: 15
   playerStats: {fileID: 0}
+  distanceToPlayer: 0
+  canShoot: 1
 --- !u!136 &1489595612496952517
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -321,6 +327,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4064474592062711040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885191093503403313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5515d6d32b6700840a23368ae7d14f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  racoon: {fileID: 3538641112180310369}
+  stats: {fileID: 0}
+  probability: 0
+  timer: 0
+  startingShootingRange: 0
+  startingDetectionRange: 0
+  currentDetectionRange: 0
+  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &6550405062028459915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: de5bb7dc180aa6a459e5c0855fa09d52, type: 3}
