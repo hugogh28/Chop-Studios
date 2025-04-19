@@ -8,19 +8,21 @@ public class Racoon : MonoBehaviour
     public EnemyAIWave racoon;
 
     private float probability;
+    private double distance;
     private float timer=0;
+    private double speed;
+    private float stealingTimer;
     private float startingShootingRange;
-    private float startingDetectionRange;
+    private Vector3 originalPosition;
+    //private Vector3 spawn = new Vector3(-34.86f, 1.47f, 18.58f);
 
     private bool actionExecuted = false;
 
-    private Vector3 originalPosition;
-
     private void Start()
     {
-        startingShootingRange = racoon.shootingRange;
+        speed = racoon.agent.speed;
 
-        startingDetectionRange = racoon.detectionRange;
+        startingShootingRange = racoon.shootingRange;
     }
     private void Update()
     {
@@ -28,24 +30,19 @@ public class Racoon : MonoBehaviour
         if (timer >= 2 && !actionExecuted)
         {
             probability = Random.Range(0f,1f);
-            if (probability >= 0.8f)
+            if (probability >= 0.8f && racoon.playerStats.coins>=5)//Ahora mismo el mapache solo tiene en cuenta la posición inicial desde que decide perseguir al jugador
+                                                                   //Así que sería conveniente que mejor persiga al jugador, le robe y luego escape
             {
-                racoon.isStealing = true;
-                actionExecuted = true;
                 originalPosition = racoon.transform.position;
+                distance = racoon.distanceToPlayer;
+                stealingTimer = (float)(distance / speed);
+                actionExecuted = true;
+                racoon.shootingRange = 2f;
+
                 racoon.canShoot = false;
-                racoon.shootingRange = 4f;
                 
-                Debug.Log("No se ejecuta el if");
-                if(racoon.distanceToPlayer <= racoon.shootingRange && racoon.playerStats.coins>=5)//No se ejecuta el if por contradiccion con la clase EnemyAIWave
-                {
-                    Debug.Log("Se ejecuta el if");
-                    racoon.playerStats.coins -= Random.Range(1, 6);
-                    Debug.Log("You've been robbed!");
-                    StartCoroutine(Stealing(3f));
-                    racoon.shootingRange = startingShootingRange;
-                }
-                Debug.Log("Se salta el if");
+                StartCoroutine(Stealing());
+                
                 timer = 0;
             }
             else
@@ -56,15 +53,17 @@ public class Racoon : MonoBehaviour
         }
     }
 
-    private IEnumerator Stealing(float seconds)
+    private IEnumerator Stealing()
     {
-        racoon.detectionRange = 0f;
-        racoon.agent.SetDestination(originalPosition);
         //Añadir aquí una línea de código que haga más smooth el giro del enemigo a su posicion original
-        yield return new WaitForSeconds(seconds); //Este valor deberá ser cambiado por una variable que calcule el tiempo que tardaría el mapache en volver a su posición original 
-        racoon.detectionRange = startingDetectionRange;
+        yield return new WaitForSeconds(stealingTimer); //Este valor deberá ser cambiado por una variable que calcule el tiempo que tardaría el mapache en volver a su posición original 
+        racoon.playerStats.coins -= Random.Range(1, 6);
+        Debug.Log("You've been robbed!");
+        racoon.agent.ResetPath();
+        racoon.agent.SetDestination(originalPosition);
+        yield return new WaitForSeconds(stealingTimer);
+        racoon.shootingRange = startingShootingRange;
         racoon.canShoot = true;
         actionExecuted = false;
-        racoon.isStealing = false;
     }
 }

@@ -49,7 +49,6 @@ public class EnemyAIWave : MonoBehaviour
     [HideInInspector] public float distanceToPlayer;
 
     public bool canShoot = true;
-    public bool isStealing = false;
 
     private void Start()
     {
@@ -67,7 +66,7 @@ public class EnemyAIWave : MonoBehaviour
     private void Update()
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        if(!isStealing && distanceToPlayer <= detectionRange)
+        if(distanceToPlayer <= detectionRange)
         {
             agent.SetDestination(player.position);
         }

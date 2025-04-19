@@ -516,7 +516,7 @@ MonoBehaviour:
   maxArmor: 50
   shop: {fileID: 0}
   armor: 0
-  coins: 5
+  coins: 20
   score: 0
   currentHealth: 0
   currentArmor: 0
@@ -4948,7 +4948,7 @@ PrefabInstance:
       objectReference: {fileID: 1684206676}
     - target: {fileID: 8207230601704767783, guid: 380cc012a95386b408c39038fbdb7206, type: 3}
       propertyPath: coins
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8207230601704767783, guid: 380cc012a95386b408c39038fbdb7206, type: 3}
       propertyPath: armorBar
