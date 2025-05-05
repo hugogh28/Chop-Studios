@@ -3908,6 +3908,11 @@ MonoBehaviour:
     timeToNextEnemy: 1
     timeToNextWave: 1
     enemiesLeft: 0
+  - enemies:
+    - {fileID: 5712147882459569405, guid: 0470bedf149c679448e0a7a5c9a624da, type: 3}
+    timeToNextEnemy: 1
+    timeToNextWave: 1
+    enemiesLeft: 0
   currentWaveIndex: 0
 --- !u!4 &1858032965
 Transform:

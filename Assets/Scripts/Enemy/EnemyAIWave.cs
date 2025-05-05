@@ -90,11 +90,11 @@ public class EnemyAIWave : MonoBehaviour
         {
             agent.isStopped = false;
         }
-        if (Time.time - lastDamageTime >= regenerationDelay && regenerationCoroutine == null)
+        /*if (Time.time - lastDamageTime >= regenerationDelay && regenerationCoroutine == null)
         {
             regenerationCap = Mathf.Min(currentHealth + regenerationAmount, maxHealth);
             regenerationCoroutine = StartCoroutine(RegenerateHealth());
-        }if(Input.GetKeyDown(KeyCode.L)) {
+        }*/if(Input.GetKeyDown(KeyCode.L)) {
             TakeDamage(50);
         }
         if (currentHealth <= 0)
