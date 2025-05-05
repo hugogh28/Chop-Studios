@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 
 public class WaveSpawner : MonoBehaviour
@@ -31,6 +32,7 @@ public class WaveSpawner : MonoBehaviour
     {
         if(currentWaveIndex >= waves.Length)
         {
+            SceneManager.LoadScene(1);
             Debug.Log("You survived every wave!");
             return;
         }

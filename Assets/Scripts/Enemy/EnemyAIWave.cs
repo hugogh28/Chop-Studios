@@ -49,6 +49,9 @@ public class EnemyAIWave : MonoBehaviour
     [HideInInspector] public float distanceToPlayer;
 
     public bool canShoot = true;
+    public bool isStealing = false;
+
+    public DifficultyLevels difficultyLevels;
 
     private void Start()
     {
@@ -58,7 +61,7 @@ public class EnemyAIWave : MonoBehaviour
             bulletSound = GetComponent<AudioSource>();
         }
 
-        currentHealth = maxHealth;
+        currentHealth = (int)(maxHealth * DifficultySettings.difficulty);
 
         agent = GetComponent<NavMeshAgent>();
     }
@@ -73,7 +76,8 @@ public class EnemyAIWave : MonoBehaviour
 
         if(distanceToPlayer <= shootingRange)
         {
-            agent.isStopped = true;
+            if(!isStealing) agent.isStopped = true;
+            
             SmoothLookAt(player);
 
             if(Time.time >= nextFireTime)
@@ -154,19 +158,23 @@ public class EnemyAIWave : MonoBehaviour
         waveSpawner.waves[waveSpawner.currentWaveIndex].enemiesLeft--;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
             TakeDamage(25);
         }
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Void"))
         {
             TakeDamage(100);
+        }
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            TakeDamage(25);
         }
     }
 
