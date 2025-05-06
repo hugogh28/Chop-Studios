@@ -10,14 +10,13 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject, life);
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if ((collision.gameObject.CompareTag("Destroyable")))
+        if((other.gameObject.CompareTag("Destroyable")))
         {
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
         }
-        
+
         Destroy(gameObject);
     }
 }

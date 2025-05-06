@@ -158,6 +158,8 @@ MonoBehaviour:
   playerStats: {fileID: 0}
   distanceToPlayer: 0
   canShoot: 1
+  isStealing: 0
+  difficultyLevels: {fileID: 0}
 --- !u!136 &1489595612496952517
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -218,7 +220,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.25
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -340,13 +342,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   racoon: {fileID: 3538641112180310369}
-  stats: {fileID: 0}
-  probability: 0
-  timer: 0
-  startingShootingRange: 0
-  startingDetectionRange: 0
-  currentDetectionRange: 0
-  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &6550405062028459915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: de5bb7dc180aa6a459e5c0855fa09d52, type: 3}

@@ -54,6 +54,9 @@ public class PlayerStats : MonoBehaviour
         armorBar.SetSliderMax(maxArmor);
 
         armorBar.SetSlider(currentArmor);
+
+        //Cuando el juego esté acabado borra esta línea y descomenta la de abajo
+        //coins = 0;
     }
 
     public void AddHealth(int amount)
@@ -168,20 +171,20 @@ public class PlayerStats : MonoBehaviour
         regenerationCoroutine = null;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("EnemyBullet"))
         {
             TakeDamage(10);
         }
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Void"))
         {
             TakeDamage(200); //Comprobar si da errores este valor al haber añadido un escudo
-        }
+        }if (other.gameObject.CompareTag("EnemyBullet")) TakeDamage(10);
     }
 
     private IEnumerator Respawn()
