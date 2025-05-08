@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d1aa6c8ba8eda45bf485b0933114e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
   player: {fileID: 963383725336495697, guid: 380cc012a95386b408c39038fbdb7206, type: 3}
   detectionRange: 100
   shootingRange: 25
@@ -159,6 +159,7 @@ MonoBehaviour:
   distanceToPlayer: 0
   canShoot: 1
   isStealing: 0
+  isAttacking: 0
   difficultyLevels: {fileID: 0}
 --- !u!136 &1489595612496952517
 CapsuleCollider:

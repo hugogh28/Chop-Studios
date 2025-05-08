@@ -50,6 +50,7 @@ public class EnemyAIWave : MonoBehaviour
 
     public bool canShoot = true;
     public bool isStealing = false;
+    public bool isAttacking = false;
 
     public DifficultyLevels difficultyLevels;
 
@@ -77,6 +78,7 @@ public class EnemyAIWave : MonoBehaviour
         if(distanceToPlayer <= shootingRange)
         {
             if(!isStealing) agent.isStopped = true;
+            if(!isAttacking) agent.isStopped = true;
             
             SmoothLookAt(player);
 

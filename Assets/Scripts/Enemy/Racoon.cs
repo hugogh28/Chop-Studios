@@ -23,7 +23,6 @@ public class Racoon : MonoBehaviour
 
     private void Start()
     {
-
         speed = racoon.agent.speed;
 
         startingShootingRange = racoon.shootingRange;

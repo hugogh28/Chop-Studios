@@ -53,6 +53,7 @@ public class WaveSpawner : MonoBehaviour
 
         if (waves[currentWaveIndex].enemiesLeft == 0)
         {
+
             readyToCountDown = true;
             currentWaveIndex++;
         }
